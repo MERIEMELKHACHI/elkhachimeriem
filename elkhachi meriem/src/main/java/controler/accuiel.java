@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.etudiant;
+import model.livre;
 
 /**
  * Servlet implementation class accuiel
@@ -30,10 +31,15 @@ public class accuiel extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		  PrintWriter out =response.getWriter();
     	  HttpSession s=request.getSession();
-          //etudiant e=(etudiant)s.getAttribute("etd");
-  	      //out.print("bienvenu "+e.getLogin()+" et"+e.getPass());
-  	      out.print("<h1>hfdfdkfj</h1>");
+    	  
+         etudiant e=(etudiant)s.getAttribute("etd");
+  	      out.print("bienvenu "+e.getLogin()+" et"+e.getPass()); 
+  	    livre l=(livre)s.getAttribute(" ");
+	      out.print("bienvenu "+l.getTitre()+" et"+l.getAuteur()+"et"+l.getType()); 
+  	      
+	
 	}
+  	      
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

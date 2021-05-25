@@ -13,6 +13,7 @@ public class Dao extends DBinteraction {
 		// TODO Auto-generated constructor stub
 	}
 	
+	//etudiant
        public void ajouterEtudiant(etudiant e)
        {
     	   connect();
@@ -39,6 +40,9 @@ public class Dao extends DBinteraction {
     	   disconnect();
 		return e;
        }
+       
+       
+       //livre
        public void ajouterliVRE(livre l)
        {
     	   connect();
@@ -46,4 +50,27 @@ public class Dao extends DBinteraction {
     	   MAJ(sql);
     	   disconnect();
        }
+       
+       public livre ajouterliVRE (String titre,String auteur,String type)
+       {
+    	   livre l=null;
+    	   connect();
+    	   String sql="select * from livre where titre ='"+titre+"'and auteur='"+auteur+"'and type='"+type+"'";
+    	   ResultSet res =Select(sql);
+    	   
+    	   try {
+   			if (res.next()) {
+   				l=new livre();
+   				l.setTitre(res.getString(1));
+   				l.setAuteur(res.getString(2));
+   				l.setType(res.getString(3));
+   				
+   			}
+   		} catch (SQLException u) {
+   			// TODO: handle exception
+   		}
+    	   disconnect();
+   		return l;
+          }
 }
+

@@ -46,14 +46,15 @@ public class inscrire extends HttpServlet {
 	    	  HttpSession s=request.getSession();
 	    	  s.setAttribute("etd", e);
 	    	  response.sendRedirect("accueil");
-	    	  //PrintWriter out =response.getWriter();
-	    	  //out.print(e.getLogin()+" et"+e.getPass());
+	    	 // PrintWriter out =response.getWriter();
+	    	 // out.print(e.getLogin()+" et"+e.getPass());
 	    	  //response.sendRedirect("");
 	      }
 	      
 	      
 		
 		
-	}
-
-}
+	}}
+	
+	
+	 
